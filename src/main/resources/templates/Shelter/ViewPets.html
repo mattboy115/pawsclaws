@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title th:text="${title}">Discus</title>
+</head>
+<body>
+    <div th:insert="fragments/header :: sightHeader"></div>
+    <h2>Viewing All Pets</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="pet: ${pets}">
+                <td th:text="${pet.name}"></td>
+                <td th:text="${pet.age}"></td>
+                <td th:text="${pet.petType}"></td>
+                <td></td>
+                <!-- <td th:text="${pet.status}"></td> -->
+                <td><a class="button-link" href="#" th:href="@{/details/{id}(id=${pet.id})}">Details</a>
+                    <a class="button-link" href="#" th:href="@{/edit/{id}(id=${pet.id})}">Edit</a>
+                    <a class="button-link" th:href="@{/adopt/{id}(id=${pet.id})}">Adopt</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div th:insert="fragments/footer :: sightfooter"></div>
+</body>
+</html>

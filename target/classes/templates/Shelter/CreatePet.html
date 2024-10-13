@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title th:text="${title}">Document</title>
+</head>
+<body>
+    <div th:insert="fragments/header :: sightHeader"></div>
+    
+    <form action="#" th:action="@{/saveadd}" method="post" th:object="${pet}">
+        <div>
+            <label>Name</label>
+            <input type="text" name="petName" th:field="${pet.name}"/>
+        </div>
+        <div>
+            <label>Age</label>
+            <input type="number" name="petAge" th:field="${pet.age}"/>
+        </div>
+        <div>
+            <label>Type</label>
+            <select name="petType" id="petType">
+                <Option th:each="petType:${petTypes}" th:value="${petType}" th:text="${petType}"></Option>
+            </select>
+        </div>
+        <div th:if="${pet.errorMessage != null and !pet.errorMessage.isEmpty()}">
+            <p th:text="${pet.errorMessage}"></p>
+        </div>
+        <button type="submit">Submit</button>
+        <a class="button-link" href="/home">Cancel</a>
+    </form>
+    <div th:insert="fragments/footer :: sightfooter"></div>
+</body>
+</html>
