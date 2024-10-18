@@ -20,7 +20,7 @@ public class PetDTO extends ErrorDataDTO {
     private int battery;
     private int oil;
     private boolean dead; // Indicates if the pet is deceased
-    // private String status; //Shows the pet's status.
+    private String status; //Shows the pet's status.
 
     /**
      * Constructor for creating a PetDTO instance.
@@ -47,18 +47,18 @@ public class PetDTO extends ErrorDataDTO {
         this.hunger = hunger;
         this.thirst = thirst;
         this.dead = dead;
-        // this.status = status;
+        this.status = status;
     }
 
     // Getter and setter methods for each field
 
-    // public String getStatus() {
-    //     return status;
-    // }
+    public String getStatus() {
+         return status;
+     }
 
-    // public void setStatus(String status) {
-    //     this.status = status;
-    // }
+     public void setStatus(String status) {
+        this.status = status;
+    }
 
     public int getBattery() {
         return battery;

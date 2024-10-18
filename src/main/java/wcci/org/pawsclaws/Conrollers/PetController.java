@@ -56,7 +56,6 @@ public class PetController {
         try {
             StatusDTO status = new StatusDTO();
             PetDTO pet = service.getPetById(id);
-            // pet.setStatus(pet.getStatus().replace("/n", "<br/>"));
             model.addAttribute("pet", pet);
             model.addAttribute("title", "Details for " + pet.getName());
             model.addAttribute("status", status);

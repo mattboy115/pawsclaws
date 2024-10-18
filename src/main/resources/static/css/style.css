@@ -79,10 +79,13 @@ footer p {
 
 table {
     margin: 0 auto;
-    margin-bottom: 100px;
     border-collapse: collapse;
     width: 80%;
     text-align: left;
+}
+
+.view-table {
+    margin-bottom: 100px;
 }
 
 table th, table td {

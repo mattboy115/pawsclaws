@@ -9,7 +9,7 @@
 <body>
     <div th:insert="fragments/header :: sightHeader"></div>
     <h2>Viewing All Pets</h2>
-    <table>
+    <table class="view-table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -24,8 +24,7 @@
                 <td th:text="${pet.name}"></td>
                 <td th:text="${pet.age}"></td>
                 <td th:text="${pet.petType}"></td>
-                <td></td>
-                <!-- <td th:text="${pet.status}"></td> -->
+                <td th:text="${pet.status}"></td>
                 <td><a class="button-link" href="#" th:href="@{/details/{id}(id=${pet.id})}">Details</a>
                     <a class="button-link" href="#" th:href="@{/edit/{id}(id=${pet.id})}">Edit</a>
                     <a class="button-link adopt-btn" th:href="@{/adopt/{id}(id=${pet.id})}">Adopt</a>

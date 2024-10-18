@@ -9,7 +9,7 @@
 <body>
     <div th:insert="fragments/header :: sightHeader"></div>
     <h2>Edit Pet</h2>
-    <form action="#" th:action="@{/saveedit}" method="post" th:object="${pet}">
+    <form class="create-form" action="#" th:action="@{/saveedit}" method="post" th:object="${pet}">
         <div>
             <label>Name</label>
             <input type="text" name="petName" th:field="${pet.name}"/>
@@ -27,8 +27,10 @@
         <div th:if="${pet.errorMessage != null and !pet.errorMessage.isEmpty()}">
             <p th:text="${pet.errorMessage}"></p>
         </div>
+        <div class="create-buttons">
         <button type="submit">Submit</button>
         <a class="button-link" href="/home">Cancel</a>
+        </div>
     </form>
     <div th:insert="fragments/footer :: sightfooter"></div>
 </body>
