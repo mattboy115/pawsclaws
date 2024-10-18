@@ -79,6 +79,7 @@ footer p {
 
 table {
     margin: 0 auto;
+    margin-bottom: 100px;
     border-collapse: collapse;
     width: 80%;
     text-align: left;
@@ -138,4 +139,36 @@ button:hover {
 
 .action-buttons a{
     margin: 0 10px;
+}
+
+.create-form {
+    width: 100%;
+    text-align: center;
+}
+
+.create-form div {
+    width: 40%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.create-form div input, select {
+    display: block;
+    height: 40px;
+    width: 100%;
+    font-size: 25px;
+    padding-left: 10px;
+}
+.create-form div label {
+    display: block;
+    text-align: left;
+    width: 100%;
+}
+
+.create-buttons {
+    padding: 30px 0;
+}
+
+.default-option {
+    color: lightgray;
 }

@@ -28,11 +28,12 @@
                 <!-- <td th:text="${pet.status}"></td> -->
                 <td><a class="button-link" href="#" th:href="@{/details/{id}(id=${pet.id})}">Details</a>
                     <a class="button-link" href="#" th:href="@{/edit/{id}(id=${pet.id})}">Edit</a>
-                    <a class="button-link" th:href="@{/adopt/{id}(id=${pet.id})}">Adopt</a>
+                    <a class="button-link adopt-btn" th:href="@{/adopt/{id}(id=${pet.id})}">Adopt</a>
                 </td>
             </tr>
         </tbody>
     </table>
     <div th:insert="fragments/footer :: sightfooter"></div>
+    <script th:src="@{/js/confirm.js}" type="text/javascript"></script>
 </body>
 </html>
