@@ -53,14 +53,24 @@ public class PetController {
 
     @GetMapping("details/{id}")
     public String getDetails(@PathVariable long id, Model model) {
-        StatusDTO status = new StatusDTO();
-        PetDTO pet = service.getPetById(id);
-        // pet.setStatus(pet.getStatus().replace("/n", "<br/>"));
-        model.addAttribute("pet", pet);
-        model.addAttribute("title", "Details for " + pet.getName());
-        model.addAttribute("status", status);
-
-        return "Shelter/ViewDetails";
+        try {
+            StatusDTO status = new StatusDTO();
+            PetDTO pet = service.getPetById(id);
+            // pet.setStatus(pet.getStatus().replace("/n", "<br/>"));
+            model.addAttribute("pet", pet);
+            model.addAttribute("title", "Details for " + pet.getName());
+            model.addAttribute("status", status);
+            
+            return "Shelter/ViewDetails";
+        }
+        catch (Exception ex) {
+            ErrorDataDTO errorData = new ErrorDataDTO();
+            errorData.setErrorMessage(ex.getMessage());
+            errorData.setErrorCode(500);
+            model.addAttribute("errorData", errorData);
+            model.addAttribute("title", "This pet doesn't exist.");
+            return "redirect:/ErrorMessage";
+        }
     }
 
     @GetMapping("create")
@@ -72,13 +82,23 @@ public class PetController {
         return "Shelter/CreatePet";
     }
 
+    @GetMapping("about")
+    public String aboutPage(Model model) {
+        return "Shelter/About";
+    }
+
+    @GetMapping("contact")
+    public String contactPage(Model model) {
+        return "Shelter/Contact";
+    }
+
     @GetMapping("edit/{id}")
     public String editPet(@PathVariable long id, Model model) {
         EditPetDTO pet = new EditPetDTO(service.getPetById(id));
         model.addAttribute("pet", pet);
         model.addAttribute("title", "Edit Pet");
         model.addAttribute("petTypes", PetType.values());
-        return "Shelter/CreatePet";
+        return "Shelter/EditPet";
     }
 
     @PostMapping("saveadd")

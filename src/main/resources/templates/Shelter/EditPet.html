@@ -8,6 +8,7 @@
 </head>
 <body>
     <div th:insert="fragments/header :: sightHeader"></div>
+    <h2>Edit Pet</h2>
     <form action="#" th:action="@{/saveedit}" method="post" th:object="${pet}">
         <div>
             <label>Name</label>

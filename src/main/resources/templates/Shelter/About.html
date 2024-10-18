@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <title th:text="${title}">Discus</title>
 </head>
-
 <body>
     <div th:insert="fragments/header :: sightHeader"></div>
-    <!-- Code goes here! -->
-    <h1>Oops! Something went wrong!</h1>
-    <label th:text="ErrorDataDTO.errorMessage"></label>
-    <label th:text="ErrorDataDTO.errorCode"></label>
-    <a class="button-link" href="/home"></a>
+    <h2>About</h2>
     <div th:insert="fragments/footer :: sightfooter"></div>
 </body>
-
 </html>
