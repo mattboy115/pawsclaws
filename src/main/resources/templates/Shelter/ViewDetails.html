@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <title th:text="${title}">Discus</title>
+    <link rel="icon" type="image/x-icon" href="https://d1nhio0ox7pgb.cloudfront.net/_img/i_collection_png/512x512/plain/bone.png">
 </head>
 <body>
     <div th:insert="fragments/header :: sightHeader"></div>
     <h2>Viewing Details About </h2><h3 th:text="${pet.name}"></h3>
+    <div class="details-image">
+        <img th:src="${image}" alt="">
+    </div>
     <table>
             <tr>
                 <td>Name</td>
